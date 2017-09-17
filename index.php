@@ -1,4 +1,6 @@
-<!doctype html>
+<?php require('getHandout.php'); ?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -16,5 +18,26 @@
 
 	<?php echo "Handout";?>
 
+	<form method='GET' action='getHandout.php'>
+
+		<!-- drop menu to select program -->
+		<select>
+		  <option value="computerScience">Computer Science</option>
+		  <option value="law">Law</option>
+		  <option value="businessAdmin">Business Administration</option>
+		</select>
+		
+		<!-- radio button to select semester -->
+		<input type="radio" name="semester" value="fall"> Fall
+  		<input type="radio" name="semester" value="spring"> Spring
+
+		<!-- text input to enter student ID -->
+		<label>Student ID:
+			<input type='text' id='studentID' name='studentID'>
+		</label>
+		<!-- submit button -->
+		 <input type='submit' value='Search'>
+
+	</form>
 </body>
 </html>
