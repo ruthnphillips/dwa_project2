@@ -1,0 +1,39 @@
+/*
+Author: Ruth P
+*/
+
+body {
+    font-family: Helvetica,Arial,sans-serif;
+    background-color: #fff;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+img{
+  margin-left: 590px;
+  height: 150px;
+  width: 150px;
+}
+.container {
+    width: 50%;
+    min-width: 600px;
+    margin-bottom: 50px;
+    margin-left: 530px;
+}
+
+h1, h2 {
+  margin-left: 560px;
+  margin-top: 30px;
+}
+
+ .likes li {
+    list-style-type: circle;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 20px; }
+  .likes ol li {
+    list-style-type: decimal-leading-zero;
+    margin-left: 530px; }
+  .likes ol {
+    margin-bottom: 35px !Important; }

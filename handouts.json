@@ -1,0 +1,26 @@
+{
+	"Business Administration": {
+		"id" : 0,
+		"HOD": "F. Scott Fitzgerald",
+		"semester" : ["fall","spring","summer"],
+		"fall" : ["Intro to Business","Mergers & Acquisitions"],
+		"spring" : ["Intro to Business","Mergers & Acquisitions"],
+		"summer" : ["xyz","abc"]
+	},
+	"Computer Science": {
+		"id" : 1,
+		"HOD": "F. Scott Fitzgerald",
+		"semester" : ["fall","spring","summer"],
+		"fall" : ["Intro to Python","Data Structures"],
+		"spring" : ["Java","whatever"],
+		"summer" : ["xyz","abc"]
+	},
+	"Law": {
+		"id" : 2,
+		"HOD": "F. Scott Fitzgerald",
+		"semester" : ["fall","spring","summer"],
+		"fall" : ["Criminal Law","Constitutional Law"],
+		"spring" : ["Intro to Torts","Jurisprudence & Equity"],
+		"summer" : ["xyz","abc"]
+	}
+}
