@@ -2,19 +2,19 @@
 	"Misson Street Shelter": {
 		"id" : 0,
 		"maxOccupancy": 70,
-		"petsAllowed" : true,
+		"petsAllowed" : "yes",
 		"currentGuests" : 70
 	},
 	"Broad Street Shelter": {
 		"id" : 1,
 		"maxOccupancy": 50,
-		"petsAllowed" : false,
+		"petsAllowed" : "no",
 		"currentGuests" : 10
 	},
 	"Salvation Army Town Square Street Shelter": {
 		"id" : 2,
 		"maxOccupancy": 30,
-		"petsAllowed" : true,
+		"petsAllowed" : "yes",
 		"currentGuests" : 29
 	}
 }

@@ -52,7 +52,7 @@ foreach ($shelters as $name => $shelter)
 		# Check for pet space availability
 		if($petRequested == 'yes')
 		{
-			if($shelter['petsAllowed'] == false)
+			if(strcmp($shelter['petsAllowed'], "no") == false)
 			{
 				$spaceAvailable = 'no';
 				unset($shelters[$name]);
@@ -71,3 +71,13 @@ $msg .= count($shelters);
 $msg .= "\n";
 $msg .= $name;
 mail($email,"Shelter availability",$msg);
+
+# verify if any shelters were found
+if(count($shelters)>0)
+{
+	$shelterFound = true;
+}
+else
+{
+	$shelterFound = false;
+}
