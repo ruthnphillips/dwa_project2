@@ -44,13 +44,11 @@
 			<div class="row">
 				<div class="col-sm-12 form-group required">
 					<h2>Enter your email</h2>
-					<input type='email' class='form-control' id='inputEmail' name='email' placeholder="* required" required>
+					<input type='email' class='form-control' id='inputEmail' name='email' placeholder="* required" required value='<?=sanitize($email)?>'>
 				</div>
 			</div>
-
-
-				<!-- submit button -->
-				 <input type='submit' class='btn btn-primary btn-small' value='Search Availability'>
+			<!-- submit button -->
+			<input type='submit' class='btn btn-primary btn-small' value='Search Availability'>
 
 		</form>
 	</div>
