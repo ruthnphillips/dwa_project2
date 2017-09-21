@@ -17,7 +17,7 @@
 
 		<h1> <a href="/"> Shelter Availability</a></h1>
 
-		<form method='GET'>
+		<form method='GET' action ="result.php">
 
 			<!-- drop menu to select number of people requesting space at shelter -->
 			<div class="row">
@@ -44,12 +44,11 @@
 			<div class="row">
 				<div class="col-sm-12 form-group required">
 					<h2>Enter your email</h2>
-					<input type='email' class='form-control' id='inputEmail' name='email' placeholder="* required" required value='<?=sanitize($email)?>'>
+					<input type='email' class='form-control' id='inputEmail' name='email' placeholder="* required" required>
 				</div>
 			</div>
 			<!-- submit button -->
 			<input type='submit' class='btn btn-primary btn-small' value='Search Availability'>
-
 		</form>
 	</div>
 </body>

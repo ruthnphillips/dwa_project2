@@ -71,5 +71,3 @@ $msg .= count($shelters);
 $msg .= "\n";
 $msg .= $name;
 mail($email,"Shelter availability",$msg);
-
-dump($shelters);
