@@ -1,10 +1,10 @@
-<!--<?php require('getHandout.php'); ?> -->
+<?php require('getShelter.php'); ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Handout Diner</title>
+	<title>Shelter Availability</title>
 	<meta charset='utf-8'>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,37 +13,46 @@
 </head>
 <body>
 
-	<h1> <a href'/'> Handout Diner </a></h1>
+	<div class="container">
 
-	<form method='GET'>
+		<h1> <a href="/"> Shelter Availability</a></h1>
 
-		<div class="form-group">
-			<!-- drop menu to select program -->
-			<h4>Select your program</h4>
-			<select class="form-control" name = "program">
-			  <option value="Computer Science">Computer Science</option>
-			  <option value="Law">Law</option>
-			  <option value="Business Administration">Business Administration</option>
-			</select>
-		</div>
+		<form method='GET'>
 
-		<div class="form-group">
-			<!-- radio button to select semester -->
-			<h4>Select your semester</h4>
-			<label class="radio-inline"><input type="radio" name="semester"> Fall</label>
-			<label class="radio-inline"><input type="radio" name="semester"> Spring</label>
-		</div>
+			<!-- drop menu to select number of people requesting space at shelter -->
+			<div class="row">
+				<div class="col-sm-12 option-large">
+					<h2>How many people in your party</h2>
+					<select class="form-control input-lg" name = "guests">
+					  <option value="1">1</option>
+					  <option value="2">2</option>
+					  <option value="3">3</option>
+					</select>
+				</div>
+			</div>
 
-		<div class="form-group">
+			<!-- radio button to select if pets are included -->
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<h2>Any Pets ?</h2>
+					<label class="radio-inline"><input type="radio" name="pets" value="yes"> Yes</label>
+					<label class="radio-inline"><input type="radio" name="pets" value="no"> No</label>
+				</div>
+			</div>
+
 			<!-- email input to enter email address -->
-			<h4>Enter your email</h4>
-			<input type='email' class='form-control' id='inputEmail' name='email'>
-		</div>
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<h2>Enter your email</h2>
+					<input type='email' class='form-control' id='inputEmail' name='email'>
+				</div>
+			</div>
 
-			<!-- submit button -->
-			 <input type='submit' class='btn btn-primary btn-small' value='email Handout'>
 
-	</form>
-	
+				<!-- submit button -->
+				 <input type='submit' class='btn btn-primary btn-small' value='Search Availability'>
+
+		</form>
+	</div>
 </body>
 </html>
