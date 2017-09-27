@@ -47,6 +47,9 @@
 			<?php else: ?>
 				<div class='alert alert-warning'> Sorry, there are no vacancies </div>
 			<?php endif; ?>
+
+			<!-- inform user email has been sent -->
+			<h3> Email has been sent to : <strong><?=sanitize($email)?></strong></h3>
     	<?php endif ?>
 
 	</div>

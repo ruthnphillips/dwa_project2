@@ -22,7 +22,7 @@
 			<!-- drop menu to select number of people requesting space at shelter -->
 			<div class="row">
 				<div class="col-sm-12 option-large">
-					<h2>How many people in your party</h2>
+					<h2>How many slots do you need </h2>
 					<select class="form-control input-lg" name = "guests">
 					  <option value="1">1</option>
 					  <option value="2">2</option>
@@ -43,8 +43,8 @@
 			<!-- email input to enter email address -->
 			<div class="row">
 				<div class="col-sm-12 form-group required">
-					<h2>Enter your email</h2>
-				<input type='email' class='form-control' id='inputEmail' name='email' placeholder="* required" required>
+					<h2>Enter your email </h2>
+				<input type='email' class='form-control' id='inputEmail' name='email' value='<?=$form->prefill('email', "(required) example@gmail.com")?>' required>
 				</div>
 			</div>
 			<!-- submit button -->
