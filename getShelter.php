@@ -1,83 +1,77 @@
 <?php
 
+require('Form.php');
 require('helper.php');
 
-$sheltersJson = file_get_contents('shelters.json');
+use DWA\Form;
 
+$form = new Form($_GET);
+
+$sheltersJson = file_get_contents('shelters.json');
 $shelters = json_decode($sheltersJson, true);
-#dump($shelters);
 
 $spaceAvailable = 'no';
-$requestedGuests = 1;
-$petRequested = 'no';
 $vacancy = 0;
 
-# Retrieve data from the form
-if (isset($_GET['pets']))
+	# Retrieve data from the form
+if($form->isSubmitted())
 {
-	$petRequested = $_GET['pets'];
-}
+	# by default guests have no pets
+	$petRequested = $form->get('pets', 'no');
 
-if (isset($_GET['guests']))
-{
-    $requestedGuests = $_GET['guests'];
-}
-else
-{
-    $requestedGuests = '';
-}
+	#by default only 1 guest slot is requested
+	$requestedGuests = $form->get('guests', 1);
 
-if (isset($_GET['email']))
-{
-    $email = $_GET['email'];
-}
+	$email = $form->get('email', '');
 
-# return all shelters if no guests are entered
-if ($requestedGuests == '')
-{
-	return $shelters;
-}
+	# validate email entry
+	$errors = $form->validate([	'email' => 'required|email']);
 
-# search for available shelter
-foreach ($shelters as $name => $shelter)
-{
-
-	# check to see if there is vacancy at the shelter
-	$vacancy = $shelter['maxOccupancy'] - $shelter['currentGuests'];
-
-	if($vacancy >= $requestedGuests)
+	if(empty($errors))
 	{
-		$spaceAvailable = 'yes';
-
-		# Check for pet space availability
-		if($petRequested == 'yes')
+		# search for available shelter
+		foreach ($shelters as $name => $shelter)
 		{
-			if(strcmp($shelter['petsAllowed'], "no") == false)
+
+			# check to see if there is vacancy at the shelter
+			$vacancy = $shelter['maxOccupancy'] - $shelter['currentGuests'];
+
+			if($vacancy >= $requestedGuests)
 			{
-				$spaceAvailable = 'no';
+				$spaceAvailable = 'yes';
+
+				# Check for pet space availability
+				if($petRequested == 'yes')
+				{
+					if(strcmp($shelter['petsAllowed'], "no") == false)
+					{
+						$spaceAvailable = 'no';
+						unset($shelters[$name]);
+					}
+				}
+			}
+			else
+			{
 				unset($shelters[$name]);
 			}
 		}
-	}
-	else
-	{
-		unset($shelters[$name]);
-	}
-}
 
-#send the results to email provided
-$msg = "Number of shelters available = ";
-$msg .= count($shelters);
-$msg .= "\n";
-$msg .= $name;
-mail($email,"Shelter availability",$msg);
+		#send the results to email provided
+		$msg = "Number of shelters available = ";
+		$msg .= count($shelters);
+		$msg .= "\n";
+		$msg .= $name;
+		mail($email,"Shelter availability",$msg);
 
-# verify if any shelters were found
-if(count($shelters)>0)
-{
-	$shelterFound = true;
-}
-else
-{
-	$shelterFound = false;
+		# verify if any shelters were found
+		if(count($shelters)>0)
+		{
+			$shelterFound = true;
+		}
+		else
+		{
+			$shelterFound = false;
+		}
+	}
+
 }
