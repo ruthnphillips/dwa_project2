@@ -44,7 +44,7 @@
 			<div class="row">
 				<div class="col-sm-12 form-group required">
 				<h2>Enter your email </h2>
-				<input type='email' class='form-control' id='inputEmail' name='email' value='<?=$form->prefill('email', "(required) example@gmail.com")?>' required>
+				<input type='email' class='form-control' id='inputEmail' name='email' placeholder="(required) name@example.com" value='' required>
 				</div>
 			</div>
 			<!-- submit button -->
